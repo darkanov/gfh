@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MyBrace — стоматологія та ортодонтія в Ковелі</title>
+<meta name="description" content="MyBrace — стоматологія й ортодонтія в Ковелі, вул. Адама Міцкевича, 29. Запис на прийом онлайн: брекети, консультація ортодонта, лікування зубів.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#f3f6fb;--surf:#fff;--ink:#0c1a2b;--mut:#586a80;--line:#dae3ef;--acc:#1f6fe0;--acc-i:#fff;--h1:#e3ecf9;--h2:#a7c3ee;--dk:#0f1722;--dkc:#18232f;--ok:#12805c;--bad:#c23a3a;
+--f:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1119;--surf:#111b27;--ink:#eaf1fa;--mut:#9bacc1;--line:#223146;--acc:#5b9bff;--acc-i:#07111f;--h1:#152741;--h2:#274b80;--dk:#060b11;--dkc:#101b27;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a1119;--surf:#111b27;--ink:#eaf1fa;--mut:#9bacc1;--line:#223146;--acc:#5b9bff;--acc-i:#07111f;--h1:#152741;--h2:#274b80;--dk:#060b11;--dkc:#101b27;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+img,svg{max-width:100%}a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-weight:500;letter-spacing:-.03em;line-height:1.04;margin:0}
+h2{font-size:clamp(30px,4.6vw,54px)}p{margin:0}
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;justify-content:center;border:0;cursor:pointer;font:600 16px/1 var(--f);padding:17px 26px;border-radius:14px;background:var(--ink);color:var(--bg);text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,color .25s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn svg{width:18px;height:18px;transition:transform .25s}
+.btn.alt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.sm{padding:12px 18px;font-size:14px;border-radius:12px}
+.btn .rp{position:absolute;border-radius:50%;background:currentColor;opacity:.25;transform:scale(0);animation:rp .6s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+@media (hover:hover){.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px -10px rgba(31,111,224,.55);background:var(--acc);color:var(--acc-i)}.btn.alt:hover{background:var(--ink);color:var(--bg);box-shadow:0 14px 30px -12px rgba(0,0,0,.4)}.btn:hover svg{transform:translateX(4px)}}
+.btn:active{transform:scale(.96);box-shadow:none}
+.btn[disabled]{opacity:.55;pointer-events:none}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding:12px 0;transition:background .3s,box-shadow .3s}
+header.sc{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;letter-spacing:-.03em;text-decoration:none}
+.logo i{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--ink);color:var(--bg);font-style:normal;font-size:19px}
+nav{display:flex;gap:6px}
+nav a{padding:9px 14px;border-radius:10px;text-decoration:none;font-weight:500;font-size:15px;color:var(--mut);transition:background .2s,color .2s}
+@media (hover:hover){nav a:hover{background:var(--surf);color:var(--ink)}}
+nav a:active{background:var(--surf)}
+.burger{display:none;width:46px;height:46px;border-radius:13px;border:1.5px solid var(--line);background:var(--surf);cursor:pointer;place-items:center;transition:transform .2s}
+.burger:active{transform:scale(.92)}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded=true] span{background:transparent}.burger[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}.burger[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:30px;background:linear-gradient(165deg,var(--h1),var(--h2));min-height:640px;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;padding:56px clamp(24px,5vw,64px)}
+.ghost{position:absolute;left:50%;bottom:-.17em;transform:translateX(-50%);font-size:clamp(120px,24vw,340px);font-weight:700;letter-spacing:-.06em;line-height:1;color:var(--ink);opacity:.06;pointer-events:none;white-space:nowrap;user-select:none}
+.hero .tx{position:relative;z-index:2}
+.tag{display:inline-flex;align-items:center;gap:8px;background:var(--surf);padding:8px 14px;border-radius:99px;font-size:14px;font-weight:500;margin-bottom:22px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--mut);box-shadow:0 0 0 0 transparent}
+.dot.on{background:var(--ok);animation:pl 2s infinite}.dot.off{background:var(--bad)}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(18,128,92,.5)}100%{box-shadow:0 0 0 10px transparent}}
+.hero h1{font-size:clamp(44px,6.6vw,92px);font-weight:300;letter-spacing:-.045em}
+.hero h1 b{font-weight:600}
+.lead{max-width:440px;margin:22px 0 30px;color:var(--mut);font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.stage{position:relative;height:100%;min-height:520px;z-index:1}
+#tooth{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab;outline-offset:-4px}
+#tooth:active{cursor:grabbing}
+.fb{display:none;position:absolute;inset:0;place-items:center;font-size:150px}
+.nogl #tooth{display:none}.nogl .fb{display:grid}
+.hint{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);background:var(--surf);padding:8px 14px;border-radius:99px;font-size:13px;color:var(--mut);display:flex;gap:8px;align-items:center;pointer-events:none;transition:opacity .4s;white-space:nowrap}
+.hint.gone{opacity:0}
+.chip{position:absolute;z-index:2;background:color-mix(in srgb,var(--surf) 78%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:14px;padding:10px 14px;font-size:13px;line-height:1.35;box-shadow:0 10px 30px -14px rgba(10,30,70,.4);pointer-events:none;animation:fl 6s ease-in-out infinite}
+.chip b{display:block;font-size:15px}.chip.a{left:2%;top:18%}.chip.b{right:0;bottom:22%;animation-delay:-3s}
+@keyframes fl{50%{transform:translateY(-8px)}}
+.facts{display:flex;flex-wrap:wrap;margin:52px auto;gap:20px 0}
+.facts div{flex:1 1 220px;padding:0 24px;border-left:1.5px solid var(--line);font-size:14px;color:var(--mut)}
+.facts div:first-child{border-left:0;padding-left:0}
+.facts strong{display:block;font-size:clamp(34px,4.4vw,52px);font-weight:400;letter-spacing:-.04em;color:var(--ink);line-height:1.1}
+/* services */
+.dk{background:var(--dk);color:#eef3fa;border-radius:30px;padding:clamp(28px,5vw,64px)}
+.dk .top{display:flex;flex-wrap:wrap;gap:20px 60px;justify-content:space-between;align-items:end;padding-bottom:32px;border-bottom:1px solid #26323f;margin-bottom:32px}
+.dk .top p{max-width:420px;color:#9fb0c4;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--dkc);border-radius:20px;padding:26px;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s;cursor:default}
+.card .ic{width:54px;height:54px;border-radius:16px;background:#223244;display:grid;place-items:center;margin-bottom:60px;transition:background .3s,transform .3s}
+.card svg{width:26px;height:26px;stroke:#bcd5ff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:21px;margin-bottom:10px;letter-spacing:-.02em}.card p{color:#93a5ba;font-size:14.5px}
+@media (hover:hover){.card:hover{transform:translateY(-6px);background:#1d2c3c}.card:hover .ic{background:var(--acc);transform:rotate(-6deg)}.card:hover svg{stroke:#fff}}
+.card:active{transform:scale(.98)}
+/* steps */
+.sec{padding:clamp(60px,9vw,120px) 0 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:36px;counter-reset:s}
+.step{background:var(--surf);border-radius:22px;padding:28px;counter-increment:s;border:1px solid var(--line)}
+.step::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--acc);color:var(--acc-i);font-weight:700;margin-bottom:22px}
+.step h3{font-size:20px;margin-bottom:8px;letter-spacing:-.02em}.step p{color:var(--mut);font-size:15px}
+/* booking */
+.book{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px;margin-top:36px;align-items:start}
+.info{background:linear-gradient(165deg,var(--h1),var(--h2));border-radius:26px;padding:clamp(24px,3vw,36px);position:sticky;top:96px}
+.info h3{font-size:24px;margin-bottom:18px}
+.row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid rgba(90,120,170,.25);text-decoration:none;transition:padding .25s}
+.row svg{flex:none;width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.row small{display:block;color:var(--mut);font-size:13px}.row span{font-weight:600}
+@media (hover:hover){a.row:hover{padding-left:8px}}a.row:active{padding-left:8px}
+table{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:15px}
+td{padding:8px 0;border-top:1px solid rgba(90,120,170,.22)}td:last-child{text-align:right;font-weight:600}
+tr.today td{color:var(--acc);font-weight:700}tr.cl td:last-child{color:var(--mut);font-weight:500}
+form,.done{background:var(--surf);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,3.4vw,40px)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label,.lb{display:block;font-weight:600;font-size:14px;margin:0 0 7px}
+.fld{margin-bottom:18px}
+input,select,textarea{width:100%;font:500 16px/1.3 var(--f);padding:15px 16px;border-radius:13px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+textarea{resize:vertical;min-height:90px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 22%,transparent)}
+.fld.er input,.fld.er select{border-color:var(--bad)}.em{display:none;color:var(--bad);font-size:13px;margin-top:6px}.fld.er .em{display:block}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg label{margin:0;cursor:pointer}.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span{display:block;padding:15px 14px;border-radius:13px;border:1.5px solid var(--line);background:var(--bg);font-weight:600;text-align:center;transition:.2s;user-select:none}
+.seg small{display:block;font-weight:400;color:var(--mut);font-size:12.5px}
+@media (hover:hover){.seg span:hover{border-color:var(--acc);transform:translateY(-2px)}}
+.seg span:active{transform:scale(.97)}
+.seg input:checked+span{background:var(--ink);color:var(--bg);border-color:var(--ink)}.seg input:checked+span small{color:inherit;opacity:.75}
+.seg input:focus-visible+span{outline:3px solid var(--acc);outline-offset:2px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.slots button{font:600 15px var(--f);padding:12px 0;border-radius:11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:.2s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media (hover:hover){.slots button:not(:disabled):hover{border-color:var(--acc);transform:translateY(-2px)}}
+.slots button:active:not(:disabled){transform:scale(.94)}
+.slots button.sel{background:var(--acc);color:var(--acc-i);border-color:var(--acc)}
+.slots button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.note{color:var(--mut);font-size:14px;padding:14px;border-radius:12px;background:var(--bg)}
+.ck{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--mut);margin:6px 0 22px;cursor:pointer}
+.ck input{width:22px;height:22px;flex:none;padding:0;accent-color:var(--acc);-webkit-appearance:auto;appearance:auto;margin:0}
+.form-er{color:var(--bad);font-size:14px;margin:0 0 14px;display:none}
+.done{text-align:center}.done .big{width:72px;height:72px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;margin:0 auto 20px;font-size:34px;animation:pop .5s cubic-bezier(.2,1.4,.3,1)}
+@keyframes pop{from{transform:scale(0)}}
+.sum{text-align:left;background:var(--bg);border-radius:16px;padding:6px 18px;margin:22px 0}
+.sum div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--line)}.sum div:first-child{border:0}.sum span{color:var(--mut)}.sum b{text-align:right}
+.done .cta{justify-content:center}
+footer{margin-top:clamp(60px,9vw,120px);padding:34px 0 40px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:36px}
+.mem{background:var(--surf);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.mem .ph{aspect-ratio:4/5;background:linear-gradient(165deg,var(--h1),var(--h2));display:grid;place-items:center}
+.mem .ph img{width:100%;height:100%;object-fit:cover}.mem .ph svg{width:46%;opacity:.5;stroke:var(--ink);fill:none;stroke-width:1.2;stroke-linecap:round}
+.mem .t2{padding:20px 22px 24px}.mem h3{font-size:20px;margin-bottom:6px;letter-spacing:-.02em}.mem p{color:var(--mut);font-size:14.5px}
+.mem.ig{display:flex;flex-direction:column;justify-content:space-between;padding:26px;background:var(--dk);color:#eef3fa;border-color:transparent}.mem.ig p{color:#9fb0c4;margin:10px 0 24px}.mem.ig .btn{background:#eef3fa;color:#0c1a2b}
+@media (hover:hover){.mem:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(10,30,70,.45)}.mem.ig .btn:hover{background:var(--acc);color:var(--acc-i)}}
+.mem:active{transform:scale(.98)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+/* responsive */
+@media (max-width:980px){
+.hero{grid-template-columns:1fr;padding-bottom:20px;min-height:0}.stage{min-height:420px;margin-top:10px}.book{grid-template-columns:1fr}.info{position:static}
+}
+@media (max-width:760px){
+.burger{display:grid}header .btn.sm{display:none}
+nav{position:fixed;left:16px;right:16px;top:calc(72px + env(safe-area-inset-top,0px));flex-direction:column;background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s}
+nav.open{opacity:1;visibility:visible;transform:none}nav a{padding:15px 16px;font-size:17px}
+.hero{border-radius:24px;padding:34px 20px 14px}.stage{min-height:360px}.chip.a{display:none}.chip.b{right:0;bottom:16%}
+.facts div{flex:1 1 45%;padding:0 12px}.facts div:nth-child(odd){border-left:0;padding-left:0}
+.g2{grid-template-columns:1fr}.cta .btn{flex:1 1 100%}.dk{border-radius:24px}.card .ic{margin-bottom:34px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap bar">
+<a class="logo" href="#top" aria-label="MyBrace — на початок"><i>🦷</i>MyBrace</a>
+<nav id="nav" aria-label="Головне меню"><a href="#services">Послуги</a><a href="#how">Як це працює</a><a href="#team">Команда</a><a href="#book">Запис</a><a href="#contacts">Контакти</a></nav>
+<a class="btn sm" href="#book">Записатися</a>
+<button class="burger" id="bg" aria-expanded="false" aria-controls="nav" aria-label="Відкрити меню"><span></span></button>
+</div></header>
+
+<main id="top" class="wrap">
+<section class="hero">
+<div class="ghost" aria-hidden="true">MyBrace</div>
+<div class="tx">
+<div class="tag"><span class="dot" id="dot"></span><span id="st">Стоматологія в Ковелі</span></div>
+<h1>Рівна усмішка <b>без зайвого стресу</b></h1>
+<p class="lead">Стоматолог та ортодонт в одному місці. Залиште заявку онлайн — ми зателефонуємо й підтвердимо час прийому.</p>
+<div class="cta">
+<a class="btn" href="#book">Записатися на прийом <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="btn alt" href="tel:+380983099099">098 309 90 99</a>
+</div>
+</div>
+<div class="stage">
+<canvas id="tooth" tabindex="0" aria-label="Інтерактивна 3D-модель зуба з брекетом. Потягніть, щоб повернути."></canvas>
+<div class="fb" aria-hidden="true">🦷</div>
+<div class="chip a"><b>Брекет-системи</b>контроль ортодонта</div>
+<div class="chip b"><b>Вівторок – пʼятниця</b>щодня 12:00–18:00</div>
+<div class="hint" id="hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg>Потягніть, щоб повернути</div>
+</div>
+</section>
+
+<div class="facts rv">
+<div><strong>2</strong>напрямки: стоматологія та ортодонтія</div>
+<div><strong>4 дні</strong>прийому на тиждень, вівторок – пʼятниця</div>
+<div><strong>12–18</strong>години прийому щодня</div>
+<div><strong>1 хв</strong>на онлайн-заявку</div>
+</div>
+
+<section id="services" class="dk rv">
+<div class="top"><h2>Дбаємо про вас,<br>з будь-яким запитом</h2><p>Від першої консультації до встановлення брекетів і підтримання здоровʼя зубів. Точний план лікування лікар складає після огляду.</p></div>
+<div class="cards">
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M8 9v6M16 9v6M3 12h18"/></svg></div><h3>Брекет-системи</h3><p>Виправлення прикусу та вирівнювання зубів під наглядом ортодонта.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div><h3>Консультація ортодонта</h3><p>Огляд, відповіді на питання та орієнтир щодо подальших кроків.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c-2-1.5-6-1-7 3-.7 3 1 5 1.5 8 .4 3 1 7 3 7 1.5 0 1.5-4 2.5-4s1 4 2.5 4c2 0 2.6-4 3-7 .5-3 2.200-5 1.500-8-1-4-5-4.500-7-3z"/></svg></div><h3>Лікування зубів</h3><p>Огляд і лікування у стоматолога, щоб зберегти ваші зуби здоровими.</p></div>
+<div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800zM19 17l.7 1.800L21.500 19.500l-1.800.7L19 22l-.7-1.800-1.800-.7 1.800-.7z"/></svg></div><h3>Гігієна та догляд</h3><p>Поради щодо щоденного догляду, особливо під час носіння брекетів.</p></div>
+</div>
+</section>
+
+<section id="how" class="sec">
+<h2 class="rv">Як записатися</h2>
+<div class="steps rv">
+<div class="step"><h3>Залиште заявку</h3><p>Оберіть лікаря, зручний день і час та вкажіть телефон.</p></div>
+<div class="step"><h3>Ми підтвердимо</h3><p>Адміністратор зателефонує і підтвердить запис або запропонує інший час.</p></div>
+<div class="step"><h3>Приходьте на прийом</h3><p>Ковель, вул. Адама Міцкевича, 29. Прийом з вівторка до пʼятниці.</p></div>
+</div>
+</section>
+
+<section id="team" class="sec">
+<h2 class="rv">Наша команда</h2>
+<div class="team rv">
+<div class="mem"><div class="t2"><h3>Філюк Ольга Вікторівна</h3><p><b>Лікар-стоматолог-ортодонт</b><br>Виправляє прикус і вирівнює зубні ряди за допомогою сучасних ортодонтичних систем.</p></div></div>
+<div class="mem"><div class="t2"><h3>Філюк Ганна Авдіївна</h3><p><b>Лікар-стоматолог-терапевт</b><br>Лікує карієс, пломбує та відновлює зуби, займається профілактикою захворювань порожнини рота.</p></div></div>
+<div class="mem ig"><div><h3>Більше про нас в Instagram</h3><p>Робота клініки, новини та результати лікування.</p></div><a class="btn" href="https://www.instagram.com/mybrace_besmart" target="_blank" rel="noopener">@mybrace_besmart</a></div>
+</div>
+</section>
+
+<section id="book" class="sec">
+<h2 class="rv">Запис на прийом</h2>
+<div class="book rv">
+<aside class="info" id="contacts">
+<h3>Контакти</h3>
+<a class="row" href="https://www.google.com/maps/search/?api=1&query=MyBrace+%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%90%D0%B4%D0%B0%D0%BC%D0%B0+%D0%9C%D1%96%D1%86%D0%BA%D0%B5%D0%B2%D0%B8%D1%87%D0%B0+29+%D0%9A%D0%BE%D0%B2%D0%B5%D0%BB%D1%8C" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.200 7-11.500A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg><div><small>Адреса — відкрити на карті</small><span>вул. Адама Міцкевича, 29, Ковель, Волинська обл., 45000</span></div></a>
+<a class="row" href="tel:+380983099099"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><div><small>Телефон — зателефонувати</small><span>098 309 90 99</span></div></a>
+<div class="row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div style="flex:1"><small>Години прийому</small>
+<table id="tb"></table></div></div>
+</aside>
+
+<div id="fw">
+<form id="f" novalidate>
+<div class="fld"><div class="lb">До кого записатися</div>
+<div class="seg"><label><input type="radio" name="doc" value="Стоматолог" checked><span>Стоматолог<small>лікування й огляд</small></span></label><label><input type="radio" name="doc" value="Ортодонт"><span>Ортодонт<small>брекети та прикус</small></span></label></div></div>
+<div class="g2">
+<div class="fld" id="fn"><label for="nm">Ваше імʼя</label><input id="nm" name="nm" autocomplete="name" placeholder="Наприклад, Олена" maxlength="60"><div class="em">Вкажіть імʼя, щоб ми знали, як до вас звертатися.</div></div>
+<div class="fld" id="fp"><label for="ph">Телефон</label><input id="ph" name="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 98 309 90 99"><div class="em">Введіть номер у форматі +380 XX XXX XX XX.</div></div>
+</div>
+<div class="fld" id="fd"><label for="dt">Дата візиту</label><input id="dt" name="dt" type="date"><div class="em" id="dem">Оберіть дату.</div></div>
+<div class="fld" id="ft"><div class="lb">Час візиту</div><div class="slots" id="sl"><div class="note" style="grid-column:1/-1">Спочатку оберіть дату — покажемо вільні години.</div></div><div class="em">Оберіть час візиту.</div></div>
+<div class="fld"><label for="cm">Коментар (необовʼязково)</label><textarea id="cm" name="cm" maxlength="400" placeholder="Що вас турбує або що хочете обговорити"></textarea></div>
+<label class="ck"><input type="checkbox" id="ag"><span>Погоджуюсь, що клініка використає мої дані, щоб звʼязатися щодо запису.</span></label>
+<p class="form-er" id="fe">Перевірте виділені поля й спробуйте ще раз.</p>
+<button class="btn" id="sb" type="submit" style="width:100%">Надіслати заявку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© <span id="yr">2026</span> MyBrace — стоматологія та ортодонтія</span><span>вул. Адама Міцкевича, 29, Ковель</span><a href="tel:+380983099099">098 309 90 99</a></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+var PHONE='+380983099099',ENDPOINT=''; /* ENDPOINT: вставте URL (Formspree/власний сервер), щоб заявки приходили автоматично */
+var DAYS=['Неділя','Понеділок','Вівторок','Середа','Четвер','Пʼятниця','Субота'];
+var HRS={2:1,3:1,4:1,5:1};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+
+/* header / menu */
+var hd=$('#hd'),nav=$('#nav'),bg=$('#bg');
+function sc(){hd.classList.toggle('sc',scrollY>10)}addEventListener('scroll',sc,{passive:true});sc();
+function menu(o){nav.classList.toggle('open',o);bg.setAttribute('aria-expanded',o)}
+bg.onclick=function(){menu(!nav.classList.contains('open'))};
+nav.addEventListener('click',function(e){if(e.target.tagName==='A')menu(false)});
+addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
+document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!bg.contains(e.target))menu(false)});
+
+/* ripple */
+document.addEventListener('pointerdown',function(e){var b=e.target.closest('.btn');if(!b)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,p=document.createElement('span');p.className='rp';p.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-r.left-s/2)+'px;top:'+(e.clientY-r.top-s/2)+'px';b.appendChild(p);setTimeout(function(){p.remove()},650)});
+
+/* reveal */
+var rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});rv.forEach(function(n){io.observe(n)})}else rv.forEach(function(n){n.classList.add('in')});
+
+/* Kyiv time & status */
+function kyiv(){try{var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Kyiv',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()),o={};p.forEach(function(x){o[x.type]=x.value});var w={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];return{d:w,m:(+o.hour%24)*60+ +o.minute}}catch(e){var n=new Date();return{d:n.getDay(),m:n.getHours()*60+n.getMinutes()}}}
+var k=kyiv(),open=HRS[k.d]&&k.m>=720&&k.m<1080;
+$('#dot').className='dot '+(open?'on':'off');
+$('#st').textContent=open?'Зараз відчинено до 18:00':'Зараз зачинено';
+var rows='';[1,2,3,4,5,6,0].forEach(function(d){rows+='<tr class="'+(d===k.d?'today ':'')+(HRS[d]?'':'cl')+'"><td>'+DAYS[d]+'</td><td>'+(HRS[d]?'12:00–18:00':'Зачинено')+'</td></tr>'});
+$('#tb').innerHTML=rows;
+
+/* booking */
+var f=$('#f'),dt=$('#dt'),sl=$('#sl'),sel=null,KEY='mb_booked';
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+var now=new Date(),mx=new Date();mx.setDate(mx.getDate()+60);
+dt.min=iso(now);dt.max=iso(mx);
+function booked(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return{}}}
+function wd(v){return new Date(v+'T12:00:00').getDay()}
+function err(id,on,msg){var el=$(id);el.classList.toggle('er',on);if(msg){var m=el.querySelector('.em');if(m)m.textContent=msg}}
+function slots(){
+ sel=null;var v=dt.value;err('#ft',false);
+ if(!v){return}
+ var d=wd(v);
+ if(!HRS[d]){err('#fd',true,'У цей день клініка зачинена. Оберіть вівторок, середу, четвер або пʼятницю.');sl.innerHTML='<div class="note" style="grid-column:1/-1">Прийом: вівторок – пʼятниця, 12:00–18:00.</div>';return}
+ err('#fd',false);
+ var bk=(booked()[v]||[]),today=v===iso(new Date()),km=kyiv().m,h='';
+ for(var m=720;m<1080;m+=30){var t=String(Math.floor(m/60)).padStart(2,'0')+':'+(m%60?'30':'00'),dis=bk.indexOf(t)>-1||(today&&m<=km+30);h+='<button type="button" data-t="'+t+'"'+(dis?' disabled':'')+'>'+t+'</button>'}
+ sl.innerHTML=h;if(!sl.querySelector('button:not(:disabled)'))sl.insertAdjacentHTML('beforeend','<div class="note" style="grid-column:1/-1">На цей день вільних годин немає — оберіть іншу дату.</div>');
+}
+dt.addEventListener('change',slots);
+sl.addEventListener('click',function(e){var b=e.target.closest('button[data-t]');if(!b||b.disabled)return;sl.querySelectorAll('.sel').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sel=b.dataset.t;err('#ft',false)});
+var ph=$('#ph');
+function digits(v){var d=v.replace(/\D/g,'');if(d.indexOf('380')===0)d=d.slice(3);else if(d[0]==='0')d=d.slice(1);return d.slice(0,9)}
+function fmt(d){var s='+380';if(d.length)s+=' '+d.slice(0,2);if(d.length>2)s+=' '+d.slice(2,5);if(d.length>5)s+=' '+d.slice(5,7);if(d.length>7)s+=' '+d.slice(7,9);return s}
+ph.addEventListener('input',function(){var d=digits(ph.value);ph.value=d.length?fmt(d):''});
+ph.addEventListener('focus',function(){if(!ph.value)ph.value='+380 '});
+ph.addEventListener('blur',function(){if(digits(ph.value).length===0)ph.value=''});
+['#nm','#ph'].forEach(function(s){$(s).addEventListener('input',function(){this.parentNode.classList.remove('er')})});
+f.addEventListener('submit',function(e){
+ e.preventDefault();var ok=true,nm=$('#nm').value.trim(),d=digits(ph.value);
+ err('#fn',nm.length<2);if(nm.length<2)ok=false;
+ err('#fp',d.length!==9);if(d.length!==9)ok=false;
+ if(!dt.value){err('#fd',true,'Оберіть дату.');ok=false}else if(!HRS[wd(dt.value)]){err('#fd',true,'У цей день клініка зачинена. Оберіть вівторок – пʼятницю.');ok=false}
+ if(!sel){err('#ft',true);ok=false}
+ if(!$('#ag').checked){ok=false;$('#fe').textContent='Підтвердьте згоду на обробку даних.'}else $('#fe').textContent='Перевірте виділені поля й спробуйте ще раз.';
+ $('#fe').style.display=ok?'none':'block';
+ if(!ok){var bad=f.querySelector('.er');if(bad)bad.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});return}
+ var doc=f.doc.value,dd=new Date(dt.value+'T12:00:00'),ds=DAYS[dd.getDay()]+', '+dd.toLocaleDateString('uk-UA',{day:'numeric',month:'long'}),tel=fmt(d);
+ var data={doctor:doc,name:nm,phone:tel,date:dt.value,time:sel,comment:$('#cm').value.trim()};
+ var btn=$('#sb');btn.disabled=true;btn.firstChild.textContent='Надсилаємо… ';
+ var fin=function(sent){
+  try{var b=booked();(b[dt.value]=b[dt.value]||[]).push(sel);localStorage.setItem(KEY,JSON.stringify(b))}catch(x){}
+  var msg='Заявка на прийом: '+doc+', '+ds+' о '+sel+'. '+nm+', '+tel+'.'+(data.comment?' '+data.comment:'');
+  $('#fw').innerHTML='<div class="done" role="status"><div class="big">✓</div><h3 style="font-size:28px">Заявку створено</h3><p style="color:var(--mut);margin-top:10px">'+(sent?'Ми отримали її та зателефонуємо, щоб підтвердити час.':'Щоб клініка точно її отримала, надішліть повідомлення або зателефонуйте — це займе кілька секунд.')+'</p><div class="sum"></div><div class="cta"><a class="btn" href="sms:'+PHONE+'?body='+encodeURIComponent(msg)+'">Надіслати SMS клініці</a><a class="btn alt" href="tel:'+PHONE+'">Зателефонувати</a></div></div>';
+  var s=$('.sum');[['Лікар',doc],['Дата',ds],['Час',sel],['Імʼя',nm],['Телефон',tel]].forEach(function(r){var el=document.createElement('div'),a=document.createElement('span'),b=document.createElement('b');a.textContent=r[0];b.textContent=r[1];el.appendChild(a);el.appendChild(b);s.appendChild(el)});
+  $('#fw').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+ };
+ if(ENDPOINT){fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)}).then(function(r){fin(r.ok)}).catch(function(){fin(false)})}else fin(false);
+});
+
+/* 3D tooth */
+var cv=$('#tooth'),stage=cv.parentNode;
+if(typeof THREE==='undefined'){stage.classList.add('nogl');return}
+var R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(x){stage.classList.add('nogl');return}
+R.setPixelRatio(Math.min(devicePixelRatio||1,2));
+var sc3=new THREE.Scene(),cam=new THREE.PerspectiveCamera(32,1,.1,50);cam.position.set(0,.2,8.6);
+sc3.add(new THREE.HemisphereLight(0xffffff,0x9db8e0,.95));
+var kl=new THREE.DirectionalLight(0xffffff,1.15);kl.position.set(3,5,6);sc3.add(kl);
+var rl=new THREE.DirectionalLight(0x9cc2ff,.8);rl.position.set(-5,2,-3);sc3.add(rl);
+var fl=new THREE.PointLight(0xffffff,.6,20);fl.position.set(-2,-1,5);sc3.add(fl);
+var env=null;
+try{var es=new THREE.Scene();es.add(new THREE.Mesh(new THREE.BoxGeometry(24,24,24),new THREE.MeshBasicMaterial({color:0x7a93b8,side:THREE.BackSide})));
+function sb(px,py,pz,w,c,k){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,w*.6),new THREE.MeshBasicMaterial({color:new THREE.Color(c).multiplyScalar(k),side:THREE.DoubleSide}));m.position.set(px,py,pz);m.lookAt(0,0,0);es.add(m)}
+sb(0,9,0,10,0xffffff,6);sb(8,2,8,6,0xfff4e6,5);sb(-9,1,-4,6,0xbfd8ff,4);sb(0,-8,4,8,0xaac4ee,1.5);
+var pm=new THREE.PMREMGenerator(R);env=pm.fromScene(es,.03).texture;pm.dispose();sc3.environment=env}catch(x){env=null}
+R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.05;
+var enamel=new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:.3,clearcoat:.7,clearcoatRoughness:.15,envMapIntensity:.85});
+var chrome=new THREE.MeshStandardMaterial({color:0xdfe6ee,metalness:env?1:.65,roughness:.16,envMapIntensity:1.1});
+var tooth=new THREE.Group(),G=new THREE.Group();G.add(tooth);sc3.add(G);
+/* один цільовий зуб: гладка поверхня з SDF (коронка з горбками + два корені, плавне зʼєднання) */
+function sm(a,b,k){var h=Math.max(k-Math.abs(a-b),0)/k;return Math.min(a,b)-h*h*k*.25}
+function rc(x,y,z,s){var ax=s*.42,ay=-.7,dx=s*.62-ax,dy=-1.95-ay,dz=-.12,px=x-ax,py=y-ay,t=(px*dx+py*dy+z*dz)/(dx*dx+dy*dy+dz*dz);t=t<0?0:t>1?1:t;var qx=px-dx*t,qy=py-dy*t,qz=z-dz*t;return Math.sqrt(qx*qx+qy*qy+qz*qz)-(.37-.26*t)}
+function sdf(x,y,z){var s=1+.2*Math.min(0,y+.1),cx=x/s,cz=z/s,yy=y-.15,k=Math.sqrt(cx*cx/1.44+yy*yy/.81+cz*cz),d=(k-1)*.85,w=Math.max(0,Math.min(1,(y-.2)*2));
+d-=.09*Math.cos((Math.abs(x)-.5)*5)*Math.cos((Math.abs(z)-.4)*6)*w;
+return sm(sm(d,rc(x,y,z,1),.3),rc(x,y,z,-1),.3)}
+var gg=new THREE.SphereGeometry(1,128,96),pa=gg.attributes.position,nn=pa.count,cols=new Float32Array(nn*3),cl=new THREE.Color(),c1=new THREE.Color(0xfdfcf8),c2=new THREE.Color(0xf1e9d6),c3=new THREE.Color(0xdccba6),c0=-.45,i,L=function(v,a,b){return Math.max(a,Math.min(b,v))};
+for(i=0;i<nn;i++){var ux=pa.getX(i),uy=pa.getY(i),uz=pa.getZ(i),t=3.2,d=1;
+ for(var q=0;q<220&&t>.02;q++){d=sdf(ux*t,c0+uy*t,uz*t);if(d<.002)break;t-=Math.max(d*.7,.004)}
+ var px=ux*t,py=c0+uy*t,pz=uz*t;pa.setXYZ(i,px,py,pz);
+ cl.copy(c1).lerp(c2,L((.5-py)/1,0,1));if(py<-.8)cl.lerp(c3,L((-.8-py)/1.1,0,1)*.9);
+ cols[i*3]=cl.r;cols[i*3+1]=cl.g;cols[i*3+2]=cl.b}
+gg.setAttribute('color',new THREE.BufferAttribute(cols,3));gg.computeVertexNormals();
+var nm=gg.attributes.normal,mp={};
+for(i=0;i<nn;i++){var key=Math.round(pa.getX(i)*1000)+','+Math.round(pa.getY(i)*1000)+','+Math.round(pa.getZ(i)*1000);(mp[key]=mp[key]||[]).push(i)}
+for(var kk in mp){var ls=mp[kk];if(ls.length<2)continue;var sx=0,sy=0,sz=0,j;for(j=0;j<ls.length;j++){sx+=nm.getX(ls[j]);sy+=nm.getY(ls[j]);sz+=nm.getZ(ls[j])}var ln=Math.sqrt(sx*sx+sy*sy+sz*sz)||1;for(j=0;j<ls.length;j++)nm.setXYZ(ls[j],sx/ln,sy/ln,sz/ln)}
+tooth.add(new THREE.Mesh(gg,enamel));tooth.scale.setScalar(.95);tooth.position.y=.46;
+var orb=[],ringsG=new THREE.Group();G.add(ringsG);
+[[2.05,1.15,.35,0],[1.8,.4,.9,2.2]].forEach(function(c,j){var m=new THREE.Mesh(new THREE.TorusGeometry(c[0],.018,12,160),chrome);m.rotation.set(c[1],c[2],0);ringsG.add(m);
+ for(var n=0;n<(j?1:2);n++){var s=new THREE.Mesh(new THREE.SphereGeometry(.13,28,20),chrome);m.add(s);orb.push({s:s,r:c[0],a:c[3]+n*3.1,v:(j?-1:1)*(.5+n*.12)})}});
+var fs=new THREE.Mesh(new THREE.SphereGeometry(.1,24,18),chrome);ringsG.add(fs);
+var bx=0,by=.4,vx=0,hx=0,hy=0,drag=false,lx=0,ly=0,vis=true,boost=0,hint=$('#hint');
+function rs(){var w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;R.setSize(w,h,false);cam.aspect=w/h;cam.position.z=w/h<.9?11.2:8.6;cam.updateProjectionMatrix()}
+rs();addEventListener('resize',rs);if(window.ResizeObserver)new ResizeObserver(rs).observe(stage);
+cv.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;ly=e.clientY;vx=0;try{cv.setPointerCapture(e.pointerId)}catch(x){}hint.classList.add('gone')});
+cv.addEventListener('pointermove',function(e){
+ if(drag){var dx=(e.clientX-lx)*.011;by+=dx;vx=dx;bx=Math.max(-.7,Math.min(.7,bx+(e.clientY-ly)*.006));lx=e.clientX;ly=e.clientY}
+ else if(e.pointerType==='mouse'){var r=cv.getBoundingClientRect();hy=((e.clientX-r.left)/r.width-.5)*.9;hx=((e.clientY-r.top)/r.height-.5)*.5}});
+function up(){if(drag){drag=false;if(Math.abs(vx)<.004)boost=.25}}
+cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+cv.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'){hx=hy=0}});
+cv.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')vx=-.12;if(e.key==='ArrowRight')vx=.12});
+if('IntersectionObserver' in window)new IntersectionObserver(function(a){vis=a[0].isIntersecting}).observe(stage);
+var cx=0,cy=0,t0=performance.now();
+function loop(t){requestAnimationFrame(loop);if(!vis||document.hidden)return;
+ var tt=(t-t0)/1000;
+ if(!drag){by+=vx;vx*=.94;if(!reduce)by+=.0045+boost;boost*=.94}
+ cx+=(bx+hx-cx)*.08;cy+=(by+hy-cy)*.12;
+ G.rotation.x=cx;G.rotation.y=cy;G.position.y=reduce?0:Math.sin(tt*1.2)*.09;
+ ringsG.rotation.y=-cy*.4+tt*.15*(reduce?0:1);
+ orb.forEach(function(o){o.a+=o.v*.012*(reduce?0:1);o.s.position.set(Math.cos(o.a)*o.r,Math.sin(o.a)*o.r,0)});
+ fs.position.set(Math.cos(tt*.8)*2.3,1.7+Math.sin(tt*1.1)*.2,Math.sin(tt*.8)*1.2);
+ R.render(sc3,cam)}
+requestAnimationFrame(loop);
+setTimeout(function(){hint.classList.add('gone')},9000);
+})();
+</script>
+</body>
+</html>
